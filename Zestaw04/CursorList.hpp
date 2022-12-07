@@ -201,6 +201,7 @@ int CursorList<T>::remove(T x){
             array[temp].next = array[array[temp].next].next;
             _size--;
         }
+        temp = array[temp].next;
     }
     return counter;
 }
