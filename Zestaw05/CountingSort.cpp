@@ -2,7 +2,6 @@
 #include <vector>
 
 template<class T> vois CountingSort(std::vector<T>& v){
-    vector<int> count(max + 1, 0);
     vector<T> output(v.size(), 0);
     int max = v[0];
 
@@ -11,6 +10,7 @@ template<class T> vois CountingSort(std::vector<T>& v){
             max = v[i];
         }
     }
+    vector<int> count(max + 1, 0);
 
     for(int i=1; i < v.size(); ++i){
         count[v[i]]++;
@@ -21,7 +21,7 @@ template<class T> vois CountingSort(std::vector<T>& v){
     }
 
     for(int i = v.size() - 1; i >= 0; --i){
-        output[count[v[i]] - 1] = array[i];
+        output[count[v[i]] - 1] = v[i]
         count[v[i]]--;
     }
 

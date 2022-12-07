@@ -2,7 +2,7 @@
 #include <vector>
 
 template<class T> void sort(std::vector<T>& v){
-    for(int i = 1; i < v.size(); ++i){
+    for(long unsigned int i = 1; i < v.size(); ++i){
         int key = v[i];
         int j = i - 1;
 

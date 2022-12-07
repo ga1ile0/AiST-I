@@ -4,10 +4,10 @@
 
 template<class T> void sort(std::vector<T>& v){
     int loc, temp, min;
-    for(int i = 0; i < v.size() - 1; ++i){
+    for(long unsigned int i = 0; i < v.size() - 1; ++i){
         min = v[i];
         loc = i;
-        for(int j = i + 1; j < v.size(); j++){
+        for(long unsigned int j = i + 1; j < v.size(); j++){
             if(min > v[j]){
                 min = v[j];
                 loc = j;

@@ -3,8 +3,8 @@
 
 template<class T> void sort(std::vector<T>& v){
     T temp;
-    for(int i = 0; i < v.size(); ++i){
-        for(int j = 0; j < (v.size() - i - 1); j++){
+    for(long unsigned int i = 0; i < v.size(); ++i){
+        for(long unsigned int j = 0; j < (v.size() - i - 1); j++){
             if(v[j] > v[j+1]){
                 temp = v[j];
                 v[j] = v[j+1];
