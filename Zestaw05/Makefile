@@ -18,6 +18,9 @@ SelectionSort.o: SelectionSort.cpp
 InsertionSort.x: InsertionSort.o
 InsertionSort.o: InsertionSort.cpp
 
+CountingSort.x: CountingSort.o
+CountingSort.o: CountingSort.cpp
+
 %.x: %.o
 	$(CXX) $(LDFLAGS) -o $@ $^ $(LDLIBS)
 %.o: %.cpp
