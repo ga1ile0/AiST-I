@@ -176,13 +176,33 @@ template<class T>
 void CursorList<T>::insert(int i, T x){
     if(_size == capacity)
         throw std::out_of_range("FULL");
-
+    int temp = head;
+    for(int n = 0; n < i-2 ; n++){
+        temp = array[temp].next;
+    }
+    array[spare].value = x;
+    array[temp].next = spare;
+    array[spare].next = array[temp].next;
+    spare = array[spare].next;
 
 }
 
 template<class T>
 int CursorList<T>::remove(T x){
-
+    int counter;
+    int prev_spare;
+    int temp = head;
+    for(int i = 0; i < size(); i++){
+        if(array[temp].value == x){
+            counter++;
+            prev_spare = spare;
+            spare = array[temp].next;
+            array[array[temp].next].next = prev_spare;
+            array[temp].next = array[array[temp].next].next;
+            _size--;
+        }
+    }
+    return counter;
 }
 
 template<class T>
