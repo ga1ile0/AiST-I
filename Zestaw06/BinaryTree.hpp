@@ -1,7 +1,6 @@
 #ifndef BST_HPP
 #define BST_HPP
 #include <iostream>
-#include <stack>
 #include <algorithm>
 
 template<typename T>
@@ -48,9 +47,7 @@ void BinaryTree<T>::insert(T x){
         _size++;
         return;
     }
-    int _curDepth = 1;
     while(true){
-        _curDepth++;
         if(x >= temp->data){
             if(temp->right == nullptr){
                 temp->right = new Node<T>(x);
