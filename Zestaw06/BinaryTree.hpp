@@ -8,11 +8,7 @@ struct Node{
     T data;
     Node* left;
     Node* right;
-    Node(T x){
-        data = x;
-        left = nullptr;
-        right = nullptr;
-    }
+    Node(T x) : data(x), left(nullptr), right(nullptr) {}
 };
 
 template<class T>
@@ -22,6 +18,7 @@ class BinaryTree{
         int _size;
         void _preorder(Node<T>* node);
         int _depth(Node<T>* node);
+        Node<T>* _searchRecursive(T x, Node<T>* node);
     public:
         BinaryTree(){
             root = nullptr;
@@ -47,7 +44,9 @@ void BinaryTree<T>::insert(T x){
         _size++;
         return;
     }
+    int _curDepth = 1;
     while(true){
+        _curDepth++;
         if(x >= temp->data){
             if(temp->right == nullptr){
                 temp->right = new Node<T>(x);
@@ -87,11 +86,19 @@ Node<T>* BinaryTree<T>::search(T x){
 }
 
 template<class T>
+Node<T>* BinaryTree<T>::_searchRecursive(T x, Node<T>* node){
+    if(node == nullptr || node->data == x)
+        return node;
+    if(x < node->data)
+        return _searchRecursive(x, node->left);
+    else if(x >= node->data)
+        return _searchRecursive(x, node->right);
+    return nullptr;
+}
+
+template<class T>
 Node<T>* BinaryTree<T>::searchRecursive(T x){
-    if(root == nullptr) return nullptr;
-    if(root->data == x) return root;
-    if(x < root->data) searchRecursive(root->left);
-    if(x > root->data) searchRecursive(root->right);
+    _searchRecursive(x, root);
 }
 
 template<class T>

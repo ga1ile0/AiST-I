@@ -13,7 +13,7 @@ int main(){
     std::cout << tree.size() << " " << tree.depth() << " " << tree.minimum() << " " << tree.maximum() << std::endl;
     tree.preorder();
     for(int i = 1; i < 10; i++){
-        if(tree.search(i) == nullptr){
+        if(tree.searchRecursive(i) == nullptr){
             std::cout << "No" << std::endl;
         }
         else{
